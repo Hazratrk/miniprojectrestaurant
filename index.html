@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Ferrero Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                              url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-amber-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Ferrero Restaurant</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="font-bold underline">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-amber-200">Menu</a></li>
+                    <li><a href="about.html" class="hover:text-amber-200">About</a></li>
+                    <li><a href="contact.html" class="hover:text-amber-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero h-screen flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Ferrero Restaurant</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                Experience the perfect blend of Italian authenticity and Azerbaijani hospitality in the heart of Baku
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="menu.html" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold">
+                    View Our Menu
+                </a>
+                <a href="contact.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-amber-900 text-white px-6 py-3 rounded-lg font-semibold">
+                    Make a Reservation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-800">Why Choose Ferrero?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-utensils text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Authentic Cuisine</h3>
+                    <p class="text-gray-600">
+                        Our dishes are prepared using traditional recipes and the freshest ingredients, bringing you the true taste of Italy with an Azerbaijani twist.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-wine-glass-alt text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fine Wines</h3>
+                    <p class="text-gray-600">
+                        Our carefully curated wine selection features the best of Italian and Azerbaijani vineyards to perfectly complement your meal.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-amber-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Warm Atmosphere</h3>
+                    <p class="text-gray-600">
+                        Enjoy our cozy, elegant dining room designed to make you feel at home while providing exceptional service.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold mb-6 text-amber-800">Our Specialties</h2>
+                    <p class="text-gray-700 mb-6">
+                        At Ferrero Restaurant, we take pride in our signature dishes that combine the best of both culinary worlds. 
+                        Don't miss our famous "Ferrero Pasta" - a unique creation by Chef Marco that has become our most requested dish.
+                    </p>
+                    <a href="menu.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-lg font-semibold">
+                        Explore Full Menu
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Pasta Dish" class="w-full h-48 object-cover rounded-lg shadow-md">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Dessert" class="w-full h-48 object-cover rounded-lg shadow-md">
+                        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Steak Dish" class="w-full h-48 object-cover rounded-lg shadow-md">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+                             alt="Salad" class="w-full h-48 object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-800">What Our Guests Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-amber-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-600 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "The Ferrero Pasta is absolutely divine! The perfect blend of Italian technique and local flavors. I come here every time I'm in Baku."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <p class="text-sm text-gray-600">London, UK</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-600 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "The atmosphere is wonderful and the service impeccable. The wine pairing suggestion was perfect with my meal. Highly recommended!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Thomas K." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Thomas K.</h4>
+                            <p class="text-sm text-gray-600">Rome, Italy</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-600 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "As a local, I love how they've adapted Italian dishes to include our Azerbaijani flavors. The plov arancini is genius!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Leyla A." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Leyla A.</h4>
+                            <p class="text-sm text-gray-600">Baku, Azerbaijan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-amber-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Experience Ferrero?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Book your table today and prepare for a culinary journey you won't forget
+            </p>
+            <a href="contact.html" class="inline-block bg-white text-amber-900 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold text-lg">
+                Make a Reservation
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-amber-950 text-white p-8">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ferrero Restaurant</h3>
+                    <p class="text-amber-200">
+                        Bringing the taste of Italy to Azerbaijan with a unique culinary fusion since 2010.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-amber-300">Home</a></li>
+                        <li><a href="menu.html" class="hover:text-amber-300">Menu</a></li>
+                        <li><a href="about.html" class="hover:text-amber-300">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-amber-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-amber-300"></i>
+                            123 Gourmet Street, Baku
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-300"></i>
+                            +994 12 345 67 89
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-300"></i>
+                            info@ferrero-restaurant.com
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Opening Hours</h4>
+                    <ul class="space-y-2">
+                        <li>Monday - Friday: 10:00 - 23:00</li>
+                        <li>Saturday - Sunday: 09:00 - 00:00</li>
+                    </ul>
+                    <div class="mt-4">
+                        <h5 class="font-bold mb-2">Follow Us</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-amber-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-amber-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-amber-300 hover:text-white"><i class="fab fa-tripadvisor"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 pt-6 text-center text-sm text-amber-300">
+                <p>© 2023 Ferrero Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
