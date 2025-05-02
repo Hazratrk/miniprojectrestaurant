@@ -84,10 +84,10 @@
             const loginNavItem = document.getElementById('loginNavItem');
             
             if (user && loginNavItem) {
-                // Remove login link
+               
                 loginNavItem.remove();
                 
-                // Add profile link
+              
                 const nav = document.querySelector('nav ul');
                 const profileLi = document.createElement('li');
                 const profileLink = document.createElement('a');
@@ -97,7 +97,8 @@
                 profileLi.appendChild(profileLink);
                 nav.appendChild(profileLi);
                 
-                // Add logout button
+               
+                
                 const logoutLi = document.createElement('li');
                 const logoutLink = document.createElement('a');
                 logoutLink.href = '#';
