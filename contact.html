@@ -16,7 +16,8 @@
                     <li><a href="index.html" class="hover:text-amber-200">Home</a></li>
                     <li><a href="menu.html" class="hover:text-amber-200">Menu</a></li>
                     <li><a href="about.html" class="hover:text-amber-200">About</a></li>
-                    <li><a href="contact.html" class="font-bold underline">Contact</a></li>
+                    <li><a href="contact.html" class="hover:text-amber-200">Contact</a></li>
+                    <li id="loginNavItem"><a href="login.html" class="hover:text-amber-200">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -50,11 +51,11 @@
                 <div class="space-y-4">
                     <div class="flex items-start">
                         <i class="fas fa-map-marker-alt text-amber-600 mt-1 mr-3"></i>
-                        <p>123 Gourmet Street, Food District, Baku, Azerbaijan</p>
+                        <p>Nizami Street AF BUSSINES HOUSE</p>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-phone text-amber-600 mr-3"></i>
-                        <p>+994 12 345 67 89</p>
+                        <p>+994 (50)211-64-02</p>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-envelope text-amber-600 mr-3"></i>
@@ -77,11 +78,47 @@
             </div>
         </div>
     </main>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            const loginNavItem = document.getElementById('loginNavItem');
+            
+            if (user && loginNavItem) {
+                // Remove login link
+                loginNavItem.remove();
+                
+                // Add profile link
+                const nav = document.querySelector('nav ul');
+                const profileLi = document.createElement('li');
+                const profileLink = document.createElement('a');
+                profileLink.href = 'profile.html';
+                profileLink.className = 'hover:text-amber-200';
+                profileLink.textContent = `Welcome, ${user.username}`;
+                profileLi.appendChild(profileLink);
+                nav.appendChild(profileLi);
+                
+                // Add logout button
+                const logoutLi = document.createElement('li');
+                const logoutLink = document.createElement('a');
+                logoutLink.href = '#';
+                logoutLink.className = 'hover:text-amber-200';
+                logoutLink.textContent = 'Logout';
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('loggedInUser');
+                    window.location.href = 'index.html';
+                });
+                logoutLi.appendChild(logoutLink);
+                nav.appendChild(logoutLi);
+            }
+        });
+    </script>
     <footer class="bg-amber-900 text-white p-6 mt-12">
         <div class="container mx-auto text-center">
-            <p>© 2023 Ferrero Restaurant. All rights reserved.</p>
+            <p>© 2025 Ferrero Restaurant. All rights reserved.</p>
         </div>
     </footer>
+    <script src="js/auth.js"></script>
+    
 </body>
 </html>
