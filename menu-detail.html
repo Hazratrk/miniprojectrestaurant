@@ -19,6 +19,12 @@
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                     <li id="authNavItem"><a href="login.html" class="nav-link">Login</a></li>
+                    <li>
+                        <a href="basket.html" class="flex items-center nav-link">
+                            <i class="fas fa-shopping-basket mr-1"></i>
+                            <span id="basketCount">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -62,24 +68,44 @@
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 mb-8">
                         <div class="flex items-center border rounded">
                             <button class="quantity-btn" id="decreaseQty">-</button>
                             <span class="px-3" id="quantity">1</span>
                             <button class="quantity-btn" id="increaseQty">+</button>
                         </div>
-                        <button id="addToCart" class="btn-primary flex items-center">
-                            <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                        <button id="addToBasket" class="btn-primary flex items-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Basket
                         </button>
                     </div>
+
+                    <!-- Customer Reviews Section -->
+                    <div class="border-t pt-6">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-800">Customer Reviews</h3>
+                        <div id="reviewsContainer">
+                            <p class="text-gray-600">Not any reviews for <span id="reviewDishName" class="font-semibold"></span> yet!</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3 text-amber-700">Add Your Review</h4>
+                            <form id="reviewForm">
+                                <textarea id="reviewText" rows="3" class="w-full p-2 border rounded mb-3" placeholder="Write your review..."></textarea>
+                                <div class="flex items-center mb-4">
+                                    <span class="mr-2">Rating:</span>
+                                    <div class="rating-stars">
+                                        <i class="far fa-star" data-rating="1"></i>
+                                        <i class="far fa-star" data-rating="2"></i>
+                                        <i class="far fa-star" data-rating="3"></i>
+                                        <i class="far fa-star" data-rating="4"></i>
+                                        <i class="far fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" id="reviewRating" value="0">
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="mt-12">
-            <h3 class="text-2xl font-bold mb-6 text-amber-800">You Might Also Like</h3>
-            <div class="grid md:grid-cols-3 gap-6" id="relatedDishes">
-                <!-- Related dishes will be loaded from detail.js -->
             </div>
         </div>
     </main>
@@ -89,7 +115,9 @@
             <p>&copy; 2023 Ferrero Restaurant. All rights reserved.</p>
         </div>
     </footer>
-<script type="module" src="./pages/menu.js"></script>
-    
+
+<script type="module" src="./pages/auth.js"></script>
+   <script type="module" src="./pages/basket.js"></script>
+   <script type="module" src="./pages/detail.js"></script>
 </body>
 </html>

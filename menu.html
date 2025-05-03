@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menu</title>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Ferrero Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100">
+    <header class="bg-amber-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Ferrero Restaurant</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="menu.html" class="nav-link active">Menu</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li id="authNavItem"><a href="login.html" class="nav-link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center mb-8">Our Menu</h1>
+    <main class="container mx-auto p-6">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-amber-800">Our Menu</h2>
+            <div class="relative">
+                <input type="text" placeholder="Search dishes..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
 
-   
-    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-      <input
-        type="text"
-        placeholder="Search dishes..."
-        class="search-input w-full md:w-1/2 px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-      />
-      <select
-        id="sort"
-        class="w-full md:w-1/4 px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-      >
-        <option value="default">Default</option>
-        <option value="price-low">Price: Low to High</option>
-        <option value="price-high">Price: High to Low</option>
-        <option value="name-asc">Name: A-Z</option>
-        <option value="name-desc">Name: Z-A</option>
-        <option value="rating">Highest Rated</option>
-      </select>
-    </div>
+        <div class="mb-6 flex justify-between items-center">
+            <h3 class="text-xl font-semibold">All Items</h3>
+            <div>
+                <label for="sort" class="mr-2">Sort by:</label>
+                <select id="sort" class="sort-select">
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Popularity</option>
+                </select>
+            </div>
+        </div>
 
- 
-    <div id="menuItems" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-     
-    </div>
-  </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="menuItems">
+            <!-- Menu items will be loaded from menu.js -->
+        </div>
+    </main>
 
+    <footer class="bg-amber-900 text-white p-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Ferrero Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
  <script type="module" src="./pages/menu.js"></script>
+ <!-- <script type="module" src="./pages/detail.js"></script> -->
 </body>
 </html>
