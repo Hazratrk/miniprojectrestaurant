@@ -6,6 +6,7 @@
     <title>Dish Details - Ferrero Restaurant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-gray-100">
     <header class="bg-amber-900 text-white p-4">
@@ -13,10 +14,17 @@
             <h1 class="text-2xl font-bold">Ferrero Restaurant</h1>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="index.html" class="hover:text-amber-200">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-amber-200">Menu</a></li>
-                    <li><a href="about.html" class="hover:text-amber-200">About</a></li>
-                    <li><a href="contact.html" class="hover:text-amber-200">Contact</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="menu.html" class="nav-link">Menu</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li id="authNavItem"><a href="login.html" class="nav-link">Login</a></li>
+                    <li>
+                        <a href="basket.html" class="flex items-center nav-link">
+                            <i class="fas fa-shopping-basket mr-1"></i>
+                            <span id="basketCount">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -26,116 +34,90 @@
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="md:flex">
                 <div class="md:w-1/2">
-                    <img id="dish-image" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
-                         alt="Dish Image" class="w-full h-full object-cover">
+                    <img id="dishImage" src="" alt="Dish Image" class="w-full h-full object-cover">
                 </div>
                 <div class="p-8 md:w-1/2">
-                    <h2 id="dish-name" class="text-3xl font-bold mb-4 text-amber-800">Margherita Pizza</h2>
-                    <p id="dish-price" class="text-2xl font-bold text-amber-700 mb-6">$12.99</p>
+                    <h2 id="dishName" class="text-3xl font-bold mb-4 text-amber-800"></h2>
+                    <p id="dishPrice" class="text-2xl font-bold text-amber-700 mb-6"></p>
                     
                     <div class="mb-6">
                         <h3 class="text-xl font-semibold mb-2 text-amber-700">Description</h3>
-                        <p id="dish-description" class="text-gray-700">
-                            Our classic Margherita pizza is made with San Marzano tomato sauce, fresh mozzarella di bufala, 
-                            and basil leaves on our signature thin crust. Baked in a wood-fired oven to perfection, this 
-                            simple yet delicious pizza is a tribute to the traditional Neapolitan style.
-                        </p>
+                        <p id="dishDescription" class="text-gray-700"></p>
                     </div>
                     
                     <div class="mb-6">
                         <h3 class="text-xl font-semibold mb-2 text-amber-700">Ingredients</h3>
-                        <ul id="dish-ingredients" class="list-disc pl-5 text-gray-700">
-                            <li>Hand-tossed pizza dough</li>
-                            <li>San Marzano tomato sauce</li>
-                            <li>Fresh mozzarella di bufala</li>
-                            <li>Fresh basil leaves</li>
-                            <li>Extra virgin olive oil</li>
-                            <li>Sea salt</li>
-                        </ul>
+                        <ul id="dishIngredients" class="list-disc pl-5 text-gray-700"></ul>
                     </div>
                     
                     <div class="mb-6">
                         <h3 class="text-xl font-semibold mb-2 text-amber-700">Nutritional Info</h3>
                         <div class="grid grid-cols-2 gap-4 text-sm">
-                            <div class="bg-amber-50 p-2 rounded">
-                                <span class="font-semibold">Calories:</span> 850 kcal
+                            <div class="nutrition-info">
+                                <span class="font-semibold">Calories:</span> <span id="calories"></span>
                             </div>
-                            <div class="bg-amber-50 p-2 rounded">
-                                <span class="font-semibold">Protein:</span> 35g
+                            <div class="nutrition-info">
+                                <span class="font-semibold">Protein:</span> <span id="protein"></span>
                             </div>
-                            <div class="bg-amber-50 p-2 rounded">
-                                <span class="font-semibold">Carbs:</span> 95g
+                            <div class="nutrition-info">
+                                <span class="font-semibold">Carbs:</span> <span id="carbs"></span>
                             </div>
-                            <div class="bg-amber-50 p-2 rounded">
-                                <span class="font-semibold">Fat:</span> 35g
+                            <div class="nutrition-info">
+                                <span class="font-semibold">Fat:</span> <span id="fat"></span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 mb-8">
                         <div class="flex items-center border rounded">
-                            <button class="px-3 py-1 text-xl">-</button>
-                            <span class="px-3">1</span>
-                            <button class="px-3 py-1 text-xl">+</button>
+                            <button class="quantity-btn" id="decreaseQty">-</button>
+                            <span class="px-3" id="quantity">1</span>
+                            <button class="quantity-btn" id="increaseQty">+</button>
                         </div>
-                        <button class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 flex items-center">
-                            <i class="fas fa-shopping-cart mr-2"></i> Add to Order
+                        <button id="addToBasket" class="btn-primary flex items-center">
+                            <i class="fas fa-shopping-cart mr-2"></i> Add to Basket
                         </button>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="mt-12">
-            <h3 class="text-2xl font-bold mb-6 text-amber-800">You Might Also Like</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <a href="detail.html?dish=pepperoni">
-                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
-                             alt="Pepperoni Pizza" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold">Pepperoni Pizza</h4>
-                            <div class="flex justify-between items-center mt-2">
-                                <span class="font-bold text-amber-700">$14.99</span>
-                                <button class="text-amber-600 hover:text-amber-800 text-sm">View Details</button>
-                            </div>
+
+                    <!-- Customer Reviews Section -->
+                    <div class="border-t pt-6">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-800">Customer Reviews</h3>
+                        <div id="reviewsContainer">
+                            <p class="text-gray-600">Not any reviews for <span id="reviewDishName" class="font-semibold"></span> yet!</p>
                         </div>
-                    </a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <a href="detail.html?dish=quattro">
-                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
-                             alt="Quattro Formaggi" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold">Quattro Formaggi</h4>
-                            <div class="flex justify-between items-center mt-2">
-                                <span class="font-bold text-amber-700">$15.50</span>
-                                <button class="text-amber-600 hover:text-amber-800 text-sm">View Details</button>
-                            </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-semibold mb-3 text-amber-700">Add Your Review</h4>
+                            <form id="reviewForm">
+                                <textarea id="reviewText" rows="3" class="w-full p-2 border rounded mb-3" placeholder="Write your review..."></textarea>
+                                <div class="flex items-center mb-4">
+                                    <span class="mr-2">Rating:</span>
+                                    <div class="rating-stars">
+                                        <i class="far fa-star" data-rating="1"></i>
+                                        <i class="far fa-star" data-rating="2"></i>
+                                        <i class="far fa-star" data-rating="3"></i>
+                                        <i class="far fa-star" data-rating="4"></i>
+                                        <i class="far fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" id="reviewRating" value="0">
+                                </div>
+                                <button type="submit" class="btn-primary">Submit Review</button>
+                            </form>
                         </div>
-                    </a>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <a href="detail.html?dish=vegetarian">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
-                             alt="Vegetarian Pizza" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h4 class="font-bold">Vegetarian Pizza</h4>
-                            <div class="flex justify-between items-center mt-2">
-                                <span class="font-bold text-amber-700">$13.75</span>
-                                <button class="text-amber-600 hover:text-amber-800 text-sm">View Details</button>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-amber-900 text-white p-6 mt-12">
+    <footer class="bg-amber-900 text-white p-8">
         <div class="container mx-auto text-center">
-            <p>© 2023 Ferrero Restaurant. All rights reserved.</p>
+            <p>&copy; 2023 Ferrero Restaurant. All rights reserved.</p>
         </div>
     </footer>
+
+<script type="module" src="./pages/auth.js"></script>
+   <script type="module" src="./pages/basket.js"></script>
+   <script type="module" src="./pages/detail.js"></script>
 </body>
 </html>

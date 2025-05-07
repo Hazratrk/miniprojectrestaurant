@@ -1,0 +1,78 @@
+/* Auth Form Styles */
+.auth-container {
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.auth-title {
+    color: #78350f;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #b45309;
+}
+
+.btn-primary {
+    background-color: #b45309;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    width: 100%;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #92400e;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #6b7280;
+}
+
+.auth-link {
+    color: #b45309;
+    font-weight: 500;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Link Styles */
+.nav-link {
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #fcd34d;
+}
+
+.nav-link.active {
+    color: #fcd34d;
+    font-weight: 600;
+}

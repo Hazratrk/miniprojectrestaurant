@@ -1,20 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/styles/main.css">
-    <title>Login</title>
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ferrero Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-amber-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Ferrero Restaurant</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="menu.html" class="nav-link">Menu</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li id="authNavItem"><a href="login.html" class="nav-link active">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6 flex justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-2xl font-bold text-amber-800 mb-6">Login to Your Account</h2>
+            
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="loginUsername">Username or Email</label>
+                    <input type="text" id="loginUsername" class="form-input" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" required>
+                </div>
+                <button type="submit" class="btn-primary w-full">
+                    Login
+                </button>
+            </form>
+            
+            <div id="loginMessage" class="mt-4 text-center"></div>
+            
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">Don't have an account? <a href="register.html" class="text-amber-700 hover:underline">Register here</a></p>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-amber-900 text-white p-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Ferrero Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="./pages/auth.js"></script>
+    <script src="./pages/login.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
 </html>

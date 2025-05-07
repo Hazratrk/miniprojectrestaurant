@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Ferrero Restaurant</title>
+    <title>Profile - Ferrero Restaurant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-gray-100">
     <header class="bg-amber-900 text-white p-4">
@@ -13,38 +14,81 @@
             <h1 class="text-2xl font-bold">Ferrero Restaurant</h1>
             <nav>
                 <ul class="flex space-x-6">
-                    <li><a href="index.html" class="hover:text-amber-200">Home</a></li>
-                    <li><a href="menu.html" class="hover:text-amber-200">Menu</a></li>
-                    <li><a href="about.html" class="hover:text-amber-200">About</a></li>
-                    <li><a href="contact.html" class="hover:text-amber-200">Contact</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="menu.html" class="nav-link">Menu</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li id="profileNavItem"><a href="profile.html" class="nav-link active"></a></li>
+                    <li><a href="#" id="logoutBtn" class="nav-link">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container mx-auto p-6">
-        <div class="flex justify-between items-center mb-8">
-            <h2 class="text-3xl font-bold text-amber-800">My Profile</h2>
-            <a href="#" class="text-amber-700 hover:text-amber-900 flex items-center">
-                <i class="fas fa-sign-out-alt mr-2"></i> Logout
-            </a>
-        </div>
-
-        <div class="grid md:grid-cols-4 gap-6 mb-8">
-            <div class="md:col-span-1">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-amber-200">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
-                             alt="Profile Photo" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold">Ayla Mammadova</h3>
-                    <p class="text-gray-600 mb-4">Member since June 2021</p>
-                    <button class="bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-sm hover:bg-amber-200">
-                        <i class="fas fa-pencil-alt mr-1"></i> Edit Profile
-                    </button>
+        <div class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-amber-800 mb-6">User Profile</h2>
+            
+            <div id="userProfile" class="space-y-4">
+                <!-- User info will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <h3 class="text-xl font-semibold text-amber-700 mb-4">Your Reservations</h3>
+                <div id="userReservations" class="space-y-4">
+                    <p class="text-gray-600">You don't have any reservations yet.</p>
                 </div>
             </div>
+        </div>
+    </main>
 
-            <div class="md:col-span-3">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class
+    <footer class="bg-amber-900 text-white p-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Ferrero Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Display user info
+            document.getElementById('userProfile').innerHTML = `
+                <div class="flex items-center">
+                    <div class="w-16 h-16 rounded-full bg-amber-200 flex items-center justify-center text-amber-800 text-2xl font-bold mr-4">
+                        ${user.username.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">${user.username}</h3>
+                        <p class="text-gray-600">${user.email}</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-amber-50 p-3 rounded">
+                        <p class="text-sm text-gray-500">Member Since</p>
+                        <p class="font-medium">${new Date(user.createdAt).toLocaleDateString()}</p>
+                    </div>
+                    <div class="bg-amber-50 p-3 rounded">
+                        <p class="text-sm text-gray-500">Status</p>
+                        <p class="font-medium">Active</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('profileNavItem').querySelector('a').textContent = user.username;
+            
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const authSystem = new AuthSystem();
+                authSystem.logout();
+            });
+        });
+    </script>
+</body>
+</html>
